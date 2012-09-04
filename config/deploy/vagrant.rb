@@ -1,3 +1,3 @@
-server 'localhost', :app, :web, :primary => true
+server 'localhost', :app, :web, :db, :primary => true
 ssh_options[:port] = 2222
 set :user, "redmine"
