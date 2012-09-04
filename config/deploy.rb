@@ -6,6 +6,7 @@ set :rvm_ruby_string, 'default'
 set :application, "redmine"
 set :repository, "git@github.com:intaxi/redmine.git"
 set :deploy_to, "/srv/redmine-application"
+set :branch, "intaxi-2.0-stable"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -81,6 +82,7 @@ namespace :redmine do
     task :config do
       # copy all shared yml files in config folder
       run "find #{shared_path}/config/ -type f -iname '*.yml' -print0 | xargs -r0 ln -s -t #{release_path}/config/"
+      run "test -f #{shared_path}/config/unicorn.rb && ln -s -t  #{release_path}/config/ #{shared_path}/config/unicorn.rb"
     end
 
     task :files do
