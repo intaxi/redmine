@@ -25,8 +25,8 @@
 /vendor/cache
 /vendor/rails
 *.rbc
+.rvmrc
 
 /.bundle
-/Gemfile.lock
 /Gemfile.local
 
