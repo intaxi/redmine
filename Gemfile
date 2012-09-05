@@ -7,7 +7,6 @@ gem "coderay", "~> 1.0.6"
 gem "fastercsv", "~> 1.5.0", :platforms => [:mri_18, :mingw_18, :jruby]
 gem "builder"
 
-gem "mysql"
 gem "unicorn"
 
 # Optional gem for LDAP authentication
