@@ -14,8 +14,10 @@ set :use_sudo, false
 set :deploy_via, :remote_cache
 set :deploy_env, 'production'
 
+set :bundle_without, [:development, :test, :sqlite, :postgresql]
+
 #set :default_stage, "production"
-set :stages, %w(production vagrant)
+set :stages, %w(production staging vagrant)
 set :default_stage, "vagrant"
 require 'capistrano/ext/multistage'
 
@@ -82,7 +84,7 @@ namespace :redmine do
     task :config do
       # copy all shared yml files in config folder
       run "find #{shared_path}/config/ -type f -iname '*.yml' -print0 | xargs -r0 ln -s -t #{release_path}/config/"
-      run "test -f #{shared_path}/config/unicorn.rb && ln -s -t  #{release_path}/config/ #{shared_path}/config/unicorn.rb"
+      run "test -f #{shared_path}/config/unicorn.rb || ln -s -t  #{release_path}/config/ #{shared_path}/config/unicorn.rb"
     end
 
     task :files do
