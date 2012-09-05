@@ -116,16 +116,13 @@ namespace :redmine do
   desc "Migrate the database"
   task :migrate, :roles => :db, :only => {:primary => true} do
     deploy.migrate
-    run_remote_rake "db:migrate:upgrade_plugin_migrations", true
-    run_remote_rake "db:migrate_plugins"
+    run_remote_rake "redmine:plugins:migrate"
   end
 
   desc "Regenerate session store"
   task :session_store do
-    if remote_file_exists? "#{latest_release}/config/initializers/session_store.rb"
-      run_remote_rake("config/initializers/session_store.rb")
-    else
-      run_remote_rake("generate_session_store")
+    if ! remote_file_exists? "#{latest_release}/config/initializers/secret_token.rb"
+      run_remote_rake("generate_secret_token")
     end
   end
 
