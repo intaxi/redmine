@@ -21,24 +21,52 @@ group :openid do
 end
 
 # Optional gem for exporting the gantt to a PNG file, not supported with jruby
-group :rmagick do
-  # RMagick 2 supports ruby 1.9
-  # RMagick 1 would be fine for ruby 1.8 but Bundler does not support
-  # different requirements for the same gem on different platforms
-  gem "rmagick", ">= 2.0.0"
+platforms :mri, :mingw do
+  group :rmagick do
+    # RMagick 2 supports ruby 1.9
+    # RMagick 1 would be fine for ruby 1.8 but Bundler does not support
+    # different requirements for the same gem on different platforms
+    gem "rmagick", ">= 2.0.0"
+  end
 end
 
 # Database gems
-group :postgresql do
-  gem "pg", ">= 0.11.0"
+platforms :mri, :mingw do
+  group :postgresql do
+    gem "pg", ">= 0.11.0"
+  end
+
+  group :sqlite do
+    gem "sqlite3"
+  end
 end
 
-group :sqlite do
-  gem "sqlite3"
+platforms :mri_18, :mingw_18 do
+  group :mysql do
+    gem "mysql"
+  end
 end
 
-group :mysql do
-  gem "mysql2", "~> 0.3.11"
+platforms :mri_19, :mingw_19 do
+  group :mysql do
+    gem "mysql2", "~> 0.3.11"
+  end
+end
+
+platforms :jruby do
+  gem "jruby-openssl"
+
+  group :mysql do
+    gem "activerecord-jdbcmysql-adapter"
+  end
+
+  group :postgresql do
+    gem "activerecord-jdbcpostgresql-adapter"
+  end
+
+  group :sqlite do
+    gem "activerecord-jdbcsqlite3-adapter"
+  end
 end
 
 group :development do
