@@ -37,7 +37,7 @@ end
 # defaulting rails_env to production
 set :rails_env, "production" unless exists? :rails_env
 # add other directories to shared folder
-set :shared_children, %w(system log pids) + %w(plugins themes config files sqlite)
+set :shared_children, %w(system log pids) + %w(plugins themes files sqlite)
 
 # Redmine specific tasks
 namespace :redmine do
@@ -83,8 +83,9 @@ namespace :redmine do
   namespace :symlink do
     task :config do
       # copy all shared yml files in config folder
-      run "find #{shared_path}/config/ -type f -iname '*.yml' -print0 | xargs -r0 ln -f -s -t #{release_path}/config/"
-      run "ln -s -t  #{release_path}/config/ #{shared_path}/config/unicorn.rb"
+      run "ln -s -t #{release_path}/config/ #{shared_path}/config/database.yml"
+      run "ln -s -t #{release_path}/config/ #{shared_path}/config/configuration.yml"
+      run "ln -s -t #{release_path}/config/ #{shared_path}/config/unicorn.rb"
     end
 
     task :files do
