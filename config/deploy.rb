@@ -24,13 +24,13 @@ require 'capistrano/ext/multistage'
 # Override standard tasks to avoid errors
 namespace :deploy do
   task :start do
-    logger.important "You should override this in your configuration"
+    sudo "sv -w 60 start redmine_rails"
   end
   task :stop do
-    logger.important "You should override this in your configuration"
+    sudo "sv -w 60 stop redmine_rails"
   end
   task :restart, :roles => :app, :except => {:no_release => true} do
-    logger.important "You should override this in your configuration"
+    sudo "sv 2 redmine_rails"
   end
 end
 
