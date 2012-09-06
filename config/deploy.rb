@@ -83,7 +83,7 @@ namespace :redmine do
   namespace :symlink do
     task :config do
       # copy all shared yml files in config folder
-      run "find #{shared_path}/config/ -type f -iname '*.yml' -print0 | xargs -r0 ln -s -t #{release_path}/config/"
+      run "find #{shared_path}/config/ -type f -iname '*.yml' -print0 | xargs -r0 ln -f -s -t #{release_path}/config/"
       run "ln -s -t  #{release_path}/config/ #{shared_path}/config/unicorn.rb"
     end
 
