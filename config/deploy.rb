@@ -30,7 +30,7 @@ namespace :deploy do
     sudo "sv -w 60 stop redmine_rails"
   end
   task :restart, :roles => :app, :except => {:no_release => true} do
-    sudo "sv 2 redmine_rails"
+#    sudo "sv 2 redmine_rails"
   end
 end
 
