@@ -1,0 +1,14 @@
+/* load the default Redmine stylesheet */
+@import url(../../../stylesheets/application.css);
+
+tr.issue { text-align: left;}
+table.issues thead tr {text-align: left;}
+.odd {background-color: white;}
+
+.controller-issues+.action-index #sidebar {
+	display: none;
+}
+
+.controller-issues+.action-index #content {
+	width: auto;
+}
