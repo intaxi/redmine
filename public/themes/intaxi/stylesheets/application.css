@@ -12,3 +12,7 @@ table.issues thead tr {text-align: left;}
 .controller-issues+.action-index #content {
 	width: auto;
 }
+
+#header {
+	background: #333333 url(../images/intaxi_bg.png);
+}
