@@ -16,3 +16,16 @@ table.issues thead tr {text-align: left;}
 #header {
 	background: #333333 url(../images/intaxi_bg.png);
 }
+
+#header h1 {
+	padding: 0.2em 0.5em 0.3em 0.5em;
+	background-color: rgba(0,0,0,0.7);
+	display: inline;
+	border-radius: 0.5em;
+}
+
+#header a {
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 0.5em;
+	
+}
