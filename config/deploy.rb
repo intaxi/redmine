@@ -37,7 +37,7 @@ end
 # defaulting rails_env to production
 set :rails_env, "production" unless exists? :rails_env
 # add other directories to shared folder
-set :shared_children, %w(system log pids) + %w(plugins themes files sqlite)
+set :shared_children, %w(system log pids) + %w(files sqlite)
 
 # Redmine specific tasks
 namespace :redmine do
@@ -61,8 +61,6 @@ namespace :redmine do
     # copy shared resources
     symlink.config # configurations
     symlink.files # files folder
-    symlink.plugins # copy plugins
-    symlink.themes # copy themes
     # guide steps
     session_store # step 4
     migrate # step 5
@@ -73,9 +71,7 @@ namespace :redmine do
   task :upgrade do
     symlink.config # configurations (steps 3.2 & 3.3)
     symlink.files # files folder (step 3.4)
-    symlink.plugins # copy plugins (step 3.5)
     session_store # regenerate session store (step 3.6)
-    symlink.themes # copy themes (step 3.7)
     migrate # migrate your database (step 4)
     cleanup # step 5
   end
@@ -91,16 +87,6 @@ namespace :redmine do
     task :files do
       # symlink the files to the shared copy
       run "rm -rf #{latest_release}/files && ln -s #{shared_path}/files #{latest_release}"
-    end
-
-    task :plugins do
-      # link all installed plugins
-      run "find #{shared_path}/plugins/ -mindepth 1 -maxdepth 1 -type d -print0 | xargs -r0 ln -s -t #{latest_release}/vendor/plugins"
-    end
-
-    task :themes do
-      # link all installed themes
-      run "find #{shared_path}/themes/ -mindepth 1 -maxdepth 1 -type d -print0 | xargs -r0 ln -s -t #{latest_release}/public/themes"
     end
 
     task :sqlite do
