@@ -1,5 +1,5 @@
 /* load the default Redmine stylesheet */
-@import url(../../../stylesheets/application.css);
+/*@import url(../../../stylesheets/application.css);*/
 
 tr.issue { text-align: left;}
 table.issues thead tr {text-align: left;}
@@ -27,5 +27,5 @@ table.issues thead tr {text-align: left;}
 #header a {
 	background-color: rgba(0,0,0,0.7);
 	border-radius: 0.5em 0.5em 0 0;
-
 }
+
