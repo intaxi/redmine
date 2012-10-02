@@ -28,7 +28,7 @@
 /vendor/rails
 *.rbc
 .rvmrc
-
+.DS_Store
 /.bundle
 /Gemfile.local
 
