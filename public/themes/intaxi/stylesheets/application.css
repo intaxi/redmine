@@ -14,6 +14,9 @@ table.issues thead tr {text-align: left;}
 }
 
 #header {
+    height: 56px;
+    height: auto;
+    padding: 8px 0 0 0;
     background: #575757; /* Old browsers */
     background: -moz-linear-gradient(top,  #575757 0%, #232323 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#575757), color-stop(100%,#232323)); /* Chrome,Safari4+ */
@@ -29,7 +32,11 @@ table.issues thead tr {text-align: left;}
     width: 118px;
     height: 45px;
     margin: 0.2em 0.5em 0.3em 0.5em;
-    background: transparent url('../images/logo2x.png');
+    background: transparent url('../images/logo2x.png') no-repeat 0 0;
+    -webkit-background-size: 118px 45px;
+       -moz-background-size: 118px 45px;
+         -o-background-size: 118px 45px;
+            background-size: 118px 45px;
     text-indent: -2000px;
     overflow: hidden;
 }
@@ -69,6 +76,13 @@ table.issues thead tr {text-align: left;}
 #main-menu li a {
     color: #44444f;
     text-shadow: 0 1px 1px #FFF;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5);
     border-radius: 0;
+}
+#main-menu li a:hover {
+    background: transparent;
+    color: #fff;
+    text-shadow: 0 1px 1px #000;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
