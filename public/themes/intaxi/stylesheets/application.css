@@ -13,6 +13,12 @@ table.issues thead tr {text-align: left;}
 	width: auto;
 }
 
+#top-menu {
+    background: #000;
+    height: 2em;
+    line-height: 2em;
+}
+
 #header {
     height: 56px;
     height: auto;
