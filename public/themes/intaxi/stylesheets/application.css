@@ -54,6 +54,7 @@ table.issues thead tr {text-align: left;}
 
 #main-menu {
     position: relative;
+    left: 0;
     margin: 0;
 
     height: 26px;
