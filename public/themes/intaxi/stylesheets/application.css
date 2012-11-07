@@ -105,6 +105,10 @@ table.issues thead tr {text-align: left;}
 }
 
 input[type=submit] {
+    padding: 4px 8px;
+    color: #fff;
+    border: 1px solid #FBBC15;
+    border-radius: 3px;
     border-color: #FBBC15 #EAA910 #C37E04;
     text-shadow: 0 1px 1px #666;
     text-shadow: 0 1px 1px rgba(0,0,0,0.5);
