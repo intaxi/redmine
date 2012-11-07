@@ -132,4 +132,9 @@ input[type=submit]:hover {
     background: linear-gradient(to bottom,  #fee877 0%,#fdd923 53%,#faae11 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fee877', endColorstr='#faae11',GradientType=0 ); /* IE6-9 */
 }
+input[type=submit]:active {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2) inset;
+    position: relative;
+    top: 1px;
+}
 
