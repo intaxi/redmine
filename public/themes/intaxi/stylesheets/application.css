@@ -105,7 +105,8 @@ table.issues thead tr {text-align: left;}
 }
 
 input[type=submit] {
-    padding: 4px 8px;
+    padding: 4px 12px;
+    margin-right: 12px;
     color: #fff;
     border: 1px solid #FBBC15;
     border-radius: 3px;
@@ -121,6 +122,9 @@ input[type=submit] {
     background: -ms-linear-gradient(top,  #fee877 0%,#fdd923 12%,#faae11 100%); /* IE10+ */
     background: linear-gradient(to bottom,  #fee877 0%,#fdd923 12%,#faae11 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fee877', endColorstr='#faae11',GradientType=0 ); /* IE6-9 */
+}
+input[type=submit]:last-child {
+    margin-right: 0;
 }
 input[type=submit]:hover {
     background: #fee877; /* Old browsers */
