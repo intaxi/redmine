@@ -6,7 +6,7 @@ set :rvm_ruby_string, 'default'
 set :application, "redmine"
 set :repository, "git@github.com:intaxi/redmine.git"
 set :deploy_to, "/srv/redmine-application"
-set :branch, "intaxi-2.0-stable"
+set :branch, "intaxi-2.2-stable"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
