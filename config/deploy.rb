@@ -17,7 +17,7 @@ set :deploy_env, 'production'
 set :bundle_without, [:development, :test, :sqlite, :postgresql]
 
 #set :default_stage, "production"
-set :stages, %w(production staging vagrant)
+set :stages, %w(production vagrant)
 set :default_stage, "vagrant"
 require 'capistrano/ext/multistage'
 
