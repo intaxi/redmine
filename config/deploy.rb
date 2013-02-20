@@ -65,6 +65,7 @@ namespace :redmine do
     session_store # step 4
     migrate # step 5
     load_default_data # step 6
+    chmod_rakefile
   end
 
   desc "Perform steps required for upgrades" # see http://www.redmine.org/projects/redmine/wiki/RedmineUpgrade
@@ -73,7 +74,12 @@ namespace :redmine do
     symlink.files # files folder (step 3.4)
     session_store # regenerate session store (step 3.6)
     migrate # migrate your database (step 4)
+    chmod_rakefile
     cleanup # step 5
+  end
+
+  task :chmod_rakefile do
+    run "chmod +x #{release_path}/Rakefile"
   end
 
   namespace :symlink do
@@ -131,5 +137,7 @@ namespace :redmine do
   # link sqlite folder just before the final symlink is created
   before 'deploy:symlink' do
     redmine.symlink.sqlite
+    redmine.chmod_rakefile
   end
+
 end
