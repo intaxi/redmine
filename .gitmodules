@@ -1,0 +1,3 @@
+[submodule "plugins/redmine_backlogs"]
+	path = plugins/redmine_backlogs
+	url = git://github.com/backlogs/redmine_backlogs.git
